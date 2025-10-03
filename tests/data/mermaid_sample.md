@@ -953,3 +953,55 @@ graph TB
     OUT_B64 --> EMAIL_OUT
     CSV_LINE --> BACKUP
 ```
+
+```
+flowchart TD
+    subgraph Creation
+        A[Create generation task] -->|Open dialog| B[Fill input]
+        B --> C{Parameter Type}
+        C -->|Free text| D[Free text input]
+        C -->|Dropdown| E[Select option]
+        D --> F[Input Parameters]
+        E --> F
+        F --> G[Submit Task]
+        G --> |Create Task| H[Task]
+        H --> I((Cancel Task))
+    end
+
+    subgraph Execution
+        H --> J[Run Task]
+        J --> O[Agent]
+        O --> K[Task result]
+    end
+
+    subgraph Validation
+        K --> L[User Review]
+        L --> |OK| M((Final Output))
+        L --> |Not OK| N[Feedback]
+        N --> H
+    end
+```
+
+```
+classDiagram
+    Animal <|-- Duck
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+      +String beakColor
+      +swim()
+      +quack()
+    }
+    class Fish{
+      -int sizeInFeet
+      -canEat()
+    }
+    class Zebra{
+      +bool is_wild
+      +run()
+    }
+```
