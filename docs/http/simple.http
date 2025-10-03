@@ -1,0 +1,20 @@
+#!/usr/bin/env -S npx httpyac -a
+
+@inputFile = ../../tests/data/simple.txt
+
+### Try with simple diagram
+# @name simple
+{{
+  const fs = require("fs");
+  const path = require("path");
+  const dir = path.dirname(path.resolve(__filename));
+  const inputPath = path.resolve(dir, inputFile)
+  const txt = fs.readFileSync(inputPath, 'utf8').trim();
+  global.dataJson = JSON.stringify(txt);
+}}
+POST http://localhost:3000/parse
+Content-Type: application/json
+
+{
+  "data": {{dataJson}}
+}
