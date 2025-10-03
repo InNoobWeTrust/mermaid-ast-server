@@ -1,5 +1,5 @@
 {
-  "name": "mermaid-parser-server",
+  "name": "mermaid-ast-server",
   "version": "1.0.0",
   "description": "A simple HTTP server to parse mermaid text into JSON AST.",
   "main": "index.js",

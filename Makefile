@@ -1,4 +1,4 @@
-# Makefile for mermaid-parser-server
+# Makefile for mermaid-ast-server
 
 # Use npx corepack pnpm for all pnpm commands
 PNPM := npx corepack pnpm

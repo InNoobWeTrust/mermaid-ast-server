@@ -1,6 +1,6 @@
 # Agent Developer Guide
 
-This document provides guidelines for AI coding agents working on the `mermaid-parser-server` project. Adhering to these conventions will ensure code quality, consistency, and maintainability.
+This document provides guidelines for AI coding agents working on the `mermaid-ast-server` project. Adhering to these conventions will ensure code quality, consistency, and maintainability.
 
 ## 1. Project Overview
 
