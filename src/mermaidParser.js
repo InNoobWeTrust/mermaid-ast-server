@@ -9,7 +9,7 @@ mermaid.initialize({ startOnLoad: false, securityLevel: 'loose' });
 function getDiagramAST(diagram) {
   const diagramDb = diagram.db;
   const ast = {
-    type: diagramDb.type,
+    type: diagram.type,
   };
 
   for (const key in diagramDb) {
