@@ -3,7 +3,7 @@
 # Use npx corepack pnpm for all pnpm commands
 PNPM := npx corepack pnpm
 
-.PHONY: help install start test lint lint-fix clean
+.PHONY: help install build start test lint lint-fix clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -11,6 +11,7 @@ PNPM := npx corepack pnpm
 help:
 	@echo "Available commands:"
 	@echo "  install     Install project dependencies"
+	@echo "  build       Build TypeScript to JavaScript"
 	@echo "  start       Start the HTTP server"
 	@echo "  test        Run the test suite"
 	@echo "  lint        Check code for style issues"
@@ -19,6 +20,9 @@ help:
 
 install:
 	@$(PNPM) install
+
+build:
+	@$(PNPM) build
 
 start:
 	@$(PNPM) start
@@ -33,5 +37,5 @@ lint-fix:
 	@$(PNPM) lint:fix
 
 clean:
-	@echo "Removing node_modules..."
-	@rm -rf node_modules
+	@echo "Cleaning up..."
+	@rm -rf node_modules dist

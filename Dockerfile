@@ -7,7 +7,12 @@ RUN corepack enable
 
 COPY package.json ./package.json
 COPY pnpm-lock.yaml ./pnpm-lock.yaml
-RUN corepack pnpm install --production
+COPY tsconfig.json ./tsconfig.json
+COPY vite.config.ts ./vite.config.ts
+RUN corepack pnpm install
+
+COPY src /app/src
+RUN corepack pnpm build
 
 FROM ${RUN_IMAGE} AS runner
 
@@ -17,11 +22,14 @@ LABEL description="Nodejs server to parse mermaid diagram into AST and return js
 WORKDIR /app
 
 COPY --from=builder /app/node_modules /app/node_modules
-COPY index.js /app/
-COPY src /app/src
+COPY --from=builder /app/dist /app/dist
+COPY healthcheck.js /app/healthcheck.js
 
 ARG PORT=5000
+ARG ENABLE_CACHE=true
 ENV PORT=${PORT}
+ENV DEBUG=1
+ENV ENABLE_CACHE=${ENABLE_CACHE}
 
 EXPOSE ${PORT}
-CMD [ "index.js" ]
+CMD [ "dist/index.js" ]

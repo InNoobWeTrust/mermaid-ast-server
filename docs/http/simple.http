@@ -2,6 +2,9 @@
 
 @inputFile = ../../tests/data/simple.txt
 
+### Health Check
+GET http://localhost:5000/health
+
 ### Try with simple diagram
 # @name simple
 {{
