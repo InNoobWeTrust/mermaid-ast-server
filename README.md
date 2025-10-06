@@ -19,7 +19,7 @@ npx corepack pnpm install
 npx corepack pnpm start
 ```
 
-The server will start on `http://localhost:3000`.
+The server will start on `http://localhost:5000`.
 
 ## Usage
 
@@ -28,7 +28,7 @@ Send a `POST` request to the `/parse` endpoint with the Mermaid text as the requ
 ### Example
 
 ```bash
-curl -X POST -H "Content-Type: text/plain" --data "graph TD; A-->B;" http://localhost:3000/parse
+curl -X POST -H "Content-Type: text/plain" --data "graph TD; A-->B;" http://localhost:5000/parse
 ```
 
 ### Output

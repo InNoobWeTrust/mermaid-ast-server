@@ -12,7 +12,7 @@
   const txt = fs.readFileSync(inputPath, 'utf8').trim();
   global.dataJson = JSON.stringify(txt);
 }}
-POST http://localhost:3000/parse
+POST http://localhost:5000/parse
 Content-Type: application/json
 
 {

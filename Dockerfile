@@ -20,5 +20,8 @@ COPY --from=builder /app/node_modules /app/node_modules
 COPY index.js /app/
 COPY src /app/src
 
-EXPOSE 3000
+ARG PORT=5000
+ENV PORT=${PORT}
+
+EXPOSE ${PORT}
 CMD [ "index.js" ]
